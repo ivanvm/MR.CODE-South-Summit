@@ -8,7 +8,5 @@ exports.loginPage = (req, res) => {
 }
 
 exports.bbvaToken = (req, res) => {
-    res.render('login',{
-        code: req.query.code
-    })
+    res.redirect('https://connect.bbva.com/token?grant_type=authorization_code&redirect_uri='+'http://51.15.245.106:1234/login/bbva_token'+'&code='+req.query.code)
 }
