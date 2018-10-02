@@ -8,3 +8,7 @@ exports.loginPage = (req, res) => {
         test: 'test'
     })
 }
+
+exports.bbvaToken = (req, res) => {
+    console.log(res.body)
+}
