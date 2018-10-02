@@ -5,3 +5,26 @@ $fa-font-path: "../../node_modules/font-awesome/fonts";
 @import "_footer";
 @import "_login";
 @import "_welcome-page";
+
+/* Header Styling */
+
+.logo-bbva {
+    display: block;
+    margin: 0 auto;
+}
+
+.text-showcase {
+    text-align: center;
+}
+
+
+/* Content Block Styling */
+
+.main-container {
+    margin: 5vw 0;
+}
+
+.img-showcase {
+    display: block;
+    margin: 0 auto;
+}

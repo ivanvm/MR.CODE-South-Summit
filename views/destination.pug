@@ -1,0 +1,19 @@
+extends layout.pug
+
+block menu
+    .header-container
+        span.return-button
+            i.fa.fa-left-arrow
+        img.logo-bbva(src='' alt='BBVA Logo')
+
+block content
+    .row.main-container
+            .col
+                .content-div
+                    img.img-showcase(src='' alt='')
+                    p Some text
+                    button.btn.btn-primary.btn-lg.btn-block(type='button' onclick='window.location.href = ""') Boton cachondo 1
+                .content-div
+                    img.img-showcase(src='' alt='')
+                    p Some text
+                    button.btn.btn-primary.btn-lg.btn-block(type='button' onclick='window.location.href = ""') Boton cachondo 2
