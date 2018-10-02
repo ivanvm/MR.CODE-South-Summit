@@ -1,6 +1,5 @@
 const Visitor = require('../models/Visitor')
 const shortid = require('shortid')
-const iplocation = require('iplocation')
 const countriesList = require('../node_modules/countries-list/dist/data.json')
 
 exports.checkoutPage = async (req, res) => {
