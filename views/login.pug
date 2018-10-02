@@ -2,8 +2,13 @@ extends layout.pug
 
 block header
   .jumbotron
-    h1 Código BBVA (UUID): #{uuid}
+    h1 BBVA User Data Profile Modeling
+
+block content
+    ul
+        each property, index in userData
+            li #{Object.keys(userData)[index]} : #{property}
 
 block footer
   .footer
-    p test
+    p Copyright 2018

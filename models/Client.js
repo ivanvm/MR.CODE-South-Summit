@@ -30,6 +30,19 @@ const transaccionSchema = new mongoose.Schema({
     type: String,
     trim: true,
     required: true
+  },
+  budget: {
+    type: Number,
+    trim: true,
+  },
+  departure: {
+    type: String
+  },
+  interests: {
+    type: [String]
+  },
+  destination: {
+    type: String
   }
 })
 

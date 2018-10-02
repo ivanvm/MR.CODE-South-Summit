@@ -1,27 +1,25 @@
 const shortid = require('shortid')
 const Client = require('../models/Client')
 const request = require('request')
+const client_id = 'app.bbva.travelexp', redirect_uri = 'http://51.15.245.106:1234/login/bbva_token', secret_id = '0izO7zEPNCnk9j%v3esvX1fXv*2v@55wLFyvFmBdaifnYdZAcnVzard*jFo$3eoT'
 
 exports.loginPage = (req, res) => {
-    /* codificacion a base64 appID:secret
-    Buffer.from("Hello World").toString('base64')*/
     res.render('login')
 }
 
 exports.bbvaToken = (req, res) => {
     request.post({
-        url: 'https://connect.bbva.com/token?grant_type=authorization_code&redirect_uri='+'http://51.15.245.106:1234/login/bbva_token'+'&code='+req.query.code,
+        url: 'https://connect.bbva.com/token?client_id='+client_id+'&redirect_uri='+redirect_uri+'&code='+req.query.code+'&grant_type=authorization_code',
         headers: {
-            'Authorization': 'Basic '+Buffer.from('app.bbva.travelexp:0izO7zEPNCnk9j%v3esvX1fXv*2v@55wLFyvFmBdaifnYdZAcnVzard*jFo$3eoT').toString('base64')
+            'Authorization': 'Basic '+Buffer.from(client_id+':'+secret_id).toString('base64')
         },
         json: true
     },(error, response, body) => {
-        const token = body.access_token
         request.get({
-            url: 'https://apis.bbva.com/customers/v1/me-basic',
+            url: 'https://apis.bbva.com/customers-sbx/v1/me-basic',
             headers: {
                 'Accept': 'application/json',
-                'Authorization': 'jwt '+token
+                'Authorization': 'jwt '+body.access_token
             },
             json: true
         }, (error, response, body) => {
@@ -38,7 +36,9 @@ exports.bbvaToken = (req, res) => {
                 if (err) {
                     console.log(err)
                 }
-                res.render('login')
+                res.render('login',{
+                    userData: userData
+                })
             })
         })
     })
