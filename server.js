@@ -14,11 +14,11 @@ app.set('trust proxy',true)
 app.set('views', path.join(__dirname,'views'))
 app.set('view engine', 'pug')
 
-mongoose.connect('mongodb://@ds115533.mlab.com:15533/patronum-checkout',{
+mongoose.connect('mongodb://@ds219983.mlab.com:19983/bbva-travel-experience',{
   useNewUrlParser: true,
   auth: {
-    user: 'ivanmoreno',
-    password: 'ivan1498'
+    user: 'admin',
+    password: 'admin123'
   }
 })
 mongoose.connection.on('error', console.error.bind('console','Error de conexión: '))
