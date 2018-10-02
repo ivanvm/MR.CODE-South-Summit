@@ -1,0 +1,95 @@
+extends layout.pug
+
+block checkout
+  .checkout
+    .paso-1
+      .row
+        .col-3
+          .paso-numero 1
+          .paso-texto Información personal
+        .col-9
+          form#formulario-informacion
+            .form-group
+              label(for='nombre') Nombre completo
+              input#nombre.form-control(type='text' placeholder='Juan Miguel Pérez')
+            .form-group
+              label(for='email') Dirección de correo electrónico
+              input#email.form-control(type='email' placeholder='juan.miguel@gmail.com')
+            .form-group.form-row
+              .form-group.col
+                label(for='pais') ¿En qué país resides?
+                select#selector-paises.form-control
+                  each country, index in countriesList
+                    if index == locationObject.country_code
+                      option(value=index selected='selected') #{country.emoji+' '+country.name}
+                    else
+                      option(value=index) #{country.emoji+' '+country.name}
+              .form-group.col
+                label(for='telefono') Número de teléfono
+                .input-group
+                  .input-group-prepend
+                    span.input-group-text +#{locationObject.properties.phone}
+                  input#telefono.form-control(type='text' placeholder='600 111 222')
+              button.btn.btn-primary.btn-lg.btn-block(type='button') 
+                | #[i.fas.fa-user-check] ¡Listo! Todo está correcto
+    .paso-2
+      .row
+        .col-3
+          .paso-numero 2
+          .paso-texto Seleccionar método de pago
+        .col-9
+          #selector-metodos-pago.accordion
+            // Tarjeta debito-credito
+            .card
+              #heading-tarjeta.card-header
+                h5.mb-0
+                  button.btn.btn-link(type='button' data-toggle='collapse' data-target='#collapse-tarjeta' aria-expanded='true' aria-controls='collapse-tarjeta') Tarjeta de crédito
+              #collapse-tarjeta.collapse.show(aria-labelledby='heading-tarjeta' data-parent='#selector-metodos-pago')
+                .card-body
+                  #container-form-tarjeta
+                    form#formulario-tarjeta
+                      .form-group
+                        label(for='numero-tarjeta') Número de la tarjeta 
+                        #numero-tarjeta
+                      .form-group
+                        label(for='nombre-titular') Nombre en la Tarjeta
+                        #nombre-titular
+                      .form-group.form-row
+                        .form-group.col
+                          label(for='caducidad-tarjeta') Fecha caducidad
+                          #caducidad-tarjeta
+                        .form-group.col
+                          label(for='cvv') Código de seguridad
+                          #cvv
+                  button.btn.btn-primary.btn-lg.btn-block(type='button') 
+                    | #[i.fas.fa-user-check] Realizar pago de 109 USD
+            // PayPal          
+            .card
+              #heading-paypal.card-header
+                h5.mb-0
+                  button.btn.btn-link.collapsed(type='button' data-toggle='collapse' data-target='#collapse-paypal' aria-expanded='false' aria-controls='collapse-paypal') PayPal
+              #collapse-paypal.collapse(aria-labelledby='heading-paypal' data-parent='#selector-metodos-pago')
+                .card-body Bla bla bla test  
+          
+    .paso-3
+      .row
+        .col-3
+          .paso-numero 3
+          .paso-texto Acceso a la escuela
+        .col-9
+          button.btn.btn-primary.btn-lg.btn-block(type='button') 
+              | #[i.fas.fa-user-check] Acceder a Sir Binary
+          
+        
+block append scripts
+  script(src='https://js.stripe.com/v3/')
+  script.
+    var listaPaises = !{JSON.stringify(countriesList)}
+    document.addEventListener("DOMContentLoaded", function() {
+      window.history.pushState({tcod:"#{tcod}"}, 'Sir Binary', '/#{product_id}/?off=#{product_off}&tcod=#{tcod}')
+    })
+    document.getElementById('selector-paises').onchange= function (ev) {
+      document.getElementsByClassName('input-group-text')[0].innerText = '+'+listaPaises[this.options[this.selectedIndex].value].phone
+    }
+    
+    
