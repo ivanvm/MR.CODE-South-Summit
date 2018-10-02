@@ -3,9 +3,11 @@ const Client = require('../models/Client')
 const bbva = require('')
 
 exports.loginPage = (req, res) => {
-    
+    /* codificacion a base64 appID:OAUTH
+    Buffer.from("Hello World").toString('base64')*/
+
     res.render('login',{
-        test: 'test'
+        code: req.query.code
     })
 }
 
