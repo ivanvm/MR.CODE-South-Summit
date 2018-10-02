@@ -1,7 +1,6 @@
 @import "node_modules/bootstrap/scss/bootstrap";
 $fa-font-path: "../../node_modules/font-awesome/fonts";
 @import "node_modules/font-awesome/scss/font-awesome";
-@import "header";
-@import "checkout";
-@import "footer";
-@import "login";
+@import "_header";
+@import "_footer";
+@import "_login";
