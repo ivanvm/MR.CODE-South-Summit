@@ -18,7 +18,7 @@ exports.bbvaToken = (req, res) => {
     },(error, response, body) => {
         const token = body.access_token
         request.get({
-            url: 'https://apis.bbva.com/customers-sbx/v1/me-basic',
+            url: 'https://apis.bbva.com/customers/v1/me-basic',
             headers: {
                 'Accept': 'application/json',
                 'Authorization': 'jwt '+token
@@ -34,16 +34,11 @@ exports.bbvaToken = (req, res) => {
                 age: ((new Date()).getFullYear())-(new Date(userData.birthdate).getFullYear()),
                 email: userData.email
             })
-            profile.save(err => {
+            profile.save(async (err) => {
                 if (err) {
                     console.log(err)
                 }
-                let nombre = await Client.findOne({
-                    name: userData.name
-                })
-                res.render('login',{
-                    uuid: nombre.name
-                })
+                res.render('login')
             })
         })
     })
