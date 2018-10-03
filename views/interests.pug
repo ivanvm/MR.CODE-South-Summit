@@ -3,7 +3,7 @@ extends layout.pug
 block menu
     .header-container
         span.return-button
-            i.fa.fa-left-arrow
+            i.fa.fa-arrow-left
         img.logo-bbva(src='/public/img/logo.png' alt='BBVA Logo')
 
 block content
@@ -35,7 +35,7 @@ block content
                         img(src='/public/img/interests/wellness.svg' alt='')
                         div Wellness
                 .col.action-group.interests-info
-                    div.budget-text.text-center Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    div.budget-text.text-center To fully personalize your travel experience, select the most accurate categories of your liking!
                     button.btn.btn-primary.btn-lg.btn-block(type='button' onclick='submitInterests()') I'm done!
 
 block scripts
@@ -49,6 +49,7 @@ block scripts
         }
 
         function submitInterests () {
+            window.location.href = '/budget'
             var interests = []
             Array.from(document.getElementsByClassName('interest-container--selected')).forEach(function (el, i) {
                 interests.push(document.getElementsByClassName('interest-container--selected')[i].id)
@@ -57,7 +58,7 @@ block scripts
             xmlhttp.open("POST", "/dbcontroller/interests");
             xmlhttp.onreadystatechange = function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    window.location.href = '/date'
+                    window.location.href = '/budget'
                 }
             }
             xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");

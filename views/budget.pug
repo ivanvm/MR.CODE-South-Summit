@@ -1,8 +1,9 @@
 extends layout.pug
+
 block menu
     .header-container
         span.return-button
-            i.fa.fa-left-arrow
+            i.fa.fa-arrow-left
         img.logo-bbva(src='/public/img/logo.png' alt='BBVA Logo')
 
 block content
@@ -10,6 +11,6 @@ block content
             .results-top-text.text-center
                 h1.text-showcase What is your budget?
                 img.results-featured-img(src='/public/img/interests/money.svg')
-                div.budget-text Take in account..full trip..lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                div.budget-text Whether you plan a luxury trip or a backpacking tour, a good estimation starts with a realistic budget. Consider flights, transportation accommodation, activities...
                 input.input-btn(type='text' class='form-control form-control-lg' id='budget' placeholder="I can spend up to...")
-                button.btn.btn-primary.btn-lg.btn-block(type='button' onclick='window.location.href = "../results"') Next
+                button.btn.btn-primary.btn-lg.btn-block(type='button' onclick='window.location.href = "../results"') Give me the results!

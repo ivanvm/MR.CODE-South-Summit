@@ -2,7 +2,7 @@ extends layout.pug
 block menu
     .header-container
         span.return-button
-            i.fa.fa-left-arrow
+            i.fa.fa-arrow-left
         img.logo-bbva(src='/public/img/logo.png' alt='BBVA Logo')
 block content
     .row
@@ -11,7 +11,7 @@ block content
                 h1.text-showcase It's time to come back
                 h3.text-showcase-sub when do you want to return?
                 img.date-featured-img(src='/public/img/interests/calendar.svg')
-                div.budget-text Take in account..full trip..lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                div.budget-text In case you are free to go anytime, we suggest skip this one. This will allow us to find for you even better offers based on your preferences. The estimation will also be closer to your budget.
                 button.btn.btn-primary.btn-lg.btn-block#start-date-input(type='button' onclick='dateInput()') Select return date
                 input.form-control.form-control-lg.input-return-date#dateInput(type="datetime-local" value="2011-08-19T13:45:00")
                 button.btn.btn-primary.btn-lg.btn-block#next-step-date(type='button' onclick='sendBookingDate()') Looks great!
@@ -26,5 +26,5 @@ block scripts
 
          function sendBookingDate () {
             var date = document.getElementById('dateInput').value
-            window.location.href = '/interests/'+window.location.search+'&returndate='+date
+            window.location.href = '/destination/'+window.location.search+'&returndate='+date
          }

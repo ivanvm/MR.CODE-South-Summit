@@ -8841,7 +8841,7 @@ body {
 
 .destination-featured-img {
   width: 50%;
-  margin: 5vw; }
+  margin: 7vw 0; }
 
 .interests-info {
   margin-top: 2vw; }
@@ -8871,3 +8871,6 @@ body {
 
 .input-return-date {
   margin-bottom: 3vw; }
+
+.city {
+  margin-bottom: 5vw; }

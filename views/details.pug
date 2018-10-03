@@ -21,22 +21,22 @@ block content
                         .card-subtitle.mb-2.text-muted.big-destination-sub Iván, this is the cheapest flight based on your desired experience
                         hr
                         .item-expense
-                            span.card-text.expense-desc Precio vuelo ida:
-                            span.expense-total 100,00€
+                            span.card-text.expense-desc One way price:
+                            span.expense-total 120,00€
                         .item-expense
-                            span.card-text.expense-desc Precio vuelo vuelta:
-                            span.expense-total 100,00€
+                            span.card-text.expense-desc Return price:
+                            span.expense-total 300,00€
                         .item-expense
-                            span.card-text.expense-desc Precio estancia (30/03 to 20/04):
-                            span.expense-total 100,00€
+                            span.card-text.expense-desc Period (30/03 to 20/04):
+                            span.expense-total 250,00€
                         .item-expense.expense-desc.cost-sum
                             span.card-text.expense-desc Total:
-                            span.expense-total 1000,00€
+                            span.expense-total 710,00€
                         a.card-link.cheapest-book(href='#') #[i.fa.fa-arrow-right] Book now
-            button.btn.btn-primary.btn-lg.btn-block.other-options-button(type='button' onclick='') Explore other options
+            button.btn.btn-primary.btn-lg.btn-block.other-options-button(type='button' onclick='window.location.href = "#firstCard"') Explore other options
             .other-options-container
                 .card.flight-list-card
-                    .card-body
+                    .card-body#firstCard
                         .row
                             .col-6.flight-list-lft
                                 .card-title.flight-list-title MAD #[i.fa.fa-plane] BCN
@@ -47,6 +47,45 @@ block content
                                 span.flight-list-price
                                     span est.
                                     | 1,000€
+                                a.card-link.flight-list-book(href='#') #[i.fa.fa-arrow-right] View more
+                .card.flight-list-card
+                    .card-body
+                        .row
+                            .col-6.flight-list-lft
+                                .card-title.flight-list-title MAD #[i.fa.fa-plane] ZGZ
+                                a.btn.btn-secondary.disabled.flight-list-date(href='#') 
+                                    i.fa.fa-clock-o
+                                    |  05/07 to 08/03
+                            .col-6.flight-list-rght
+                                span.flight-list-price
+                                    span est.
+                                    | 500€
+                                a.card-link.flight-list-book(href='#') #[i.fa.fa-arrow-right] View more
+            .card.flight-list-card
+                    .card-body
+                        .row
+                            .col-6.flight-list-lft
+                                .card-title.flight-list-title MAD #[i.fa.fa-plane] BLB
+                                a.btn.btn-secondary.disabled.flight-list-date(href='#') 
+                                    i.fa.fa-clock-o
+                                    |  06/07 to 09/11
+                            .col-6.flight-list-rght
+                                span.flight-list-price
+                                    span est.
+                                    | 3,000€
+                                a.card-link.flight-list-book(href='#') #[i.fa.fa-arrow-right] View more
+            .card.flight-list-card
+                    .card-body
+                        .row
+                            .col-6.flight-list-lft
+                                .card-title.flight-list-title MAD #[i.fa.fa-plane] OPO
+                                a.btn.btn-secondary.disabled.flight-list-date(href='#') 
+                                    i.fa.fa-clock-o
+                                    |  02/05 to 02/10
+                            .col-6.flight-list-rght
+                                span.flight-list-price
+                                    span est.
+                                    | 2,040€
                                 a.card-link.flight-list-book(href='#') #[i.fa.fa-arrow-right] View more
                         
 block scripts
