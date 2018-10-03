@@ -1,0 +1,15 @@
+extends layout.pug
+block menu
+    .header-container
+        span.return-button
+            i.fa.fa-left-arrow
+        img.logo-bbva(src='' alt='BBVA Logo')
+block content
+    .row
+        .col
+            h2.text-showcase What is your budget for this?
+            p <br><br>
+            input(type='input')
+            p <br><br>
+            div Take in account..full trip..lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+            button.btn.btn-primary.btn-lg.btn-block(type='button' onclick='window.location.href = "../results"') Next

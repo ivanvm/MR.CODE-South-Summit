@@ -1,0 +1,27 @@
+extends layout
+
+block menu
+    .header-container
+        span.return-button
+            i.fa.fa-arrow-left
+        img.logo-bbva(src='' alt='BBVA Logo')
+
+block content
+    .row.main-container
+        .card.city
+            .card-body.city-card-body
+                figure.tint
+                    img.card-img(src='https://a.travel-assets.com/findyours-php/viewfinder/images/res30/20000/20541-The-West-End.jpg' alt='')
+                .card-img-overlay.text-white
+                    h5.card-title Madrid
+                    p.card-text 
+                        span from
+                        | 2,000€
+            .card-footer.text-muted.text-center 
+                span.city-card-date
+                    a.btn.btn-secondary.disabled(href='#') 
+                        i.fa.fa-clock-o
+                        |  03/07 to 08/09
+                span.city-card-book
+                    a.btn.btn-primary(href='#') 
+                        | View more

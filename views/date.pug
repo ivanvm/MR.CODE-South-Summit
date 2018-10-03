@@ -1,0 +1,13 @@
+extends layout.pug
+block menu
+    .header-container
+        span.return-button
+            i.fa.fa-left-arrow
+        img.logo-bbva(src='' alt='BBVA Logo')
+block content
+    .row
+        .col
+            h2.text-showcase Do you know the exact date?
+            button.btn.btn-primary.btn-lg.btn-block(type='button' onclick='window.location.href = ""') Of course!
+            input(type='date')
+            button.btn.btn-primary.btn-lg.btn-block(type='button' onclick='window.location.href = ""') No. Please, show me the cheapest dates

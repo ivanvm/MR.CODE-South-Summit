@@ -12,6 +12,7 @@ router.get('/date', main.date)
 router.get('/budget', main.budget)
 router.get('/results', main.results)
 router.get('/details', main.details)
+router.post('/dbcontroller/interests', main.dbInterests)
 
 
 module.exports = router

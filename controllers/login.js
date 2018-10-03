@@ -37,9 +37,8 @@ exports.bbvaToken = (req, res) => {
                 if (err) {
                     console.log(err)
                 }
-                res.render('login', {
-                    userData: userData
-                })
+                res.cookie('uuid', userData.userId);
+                res.redirect('/welcome')
             })
         })
     })
