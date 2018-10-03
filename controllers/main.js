@@ -9,8 +9,12 @@ exports.destination = (req, res) => {
     res.render('destination')
 }
 
-exports.date = (req, res) => {
-    res.render('date')
+exports.bookingdate = (req, res) => {
+    res.render('bookingdate')
+}
+
+exports.returndate = (req, res) => {
+    res.render('returndate')
 }
 
 exports.budget = (req, res) => {

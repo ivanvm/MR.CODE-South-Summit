@@ -46,6 +46,14 @@ const transaccionSchema = new mongoose.Schema({
     destination: {
         type: String,
         trim: true
+    },
+    bookingDate: {
+        type: String,
+        trim: true
+    },
+    returnDate: {
+        type: String,
+        trim: true
     }
 })
 

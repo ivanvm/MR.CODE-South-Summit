@@ -61,5 +61,5 @@ block scripts
                 }
             }
             xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-            xmlhttp.send(JSON.stringify({ "data": interests}));
+            xmlhttp.send(JSON.stringify({ "interests": interests, "bookingDate": bookingdate, "returnDate": returndate}));
         }

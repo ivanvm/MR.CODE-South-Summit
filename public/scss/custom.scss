@@ -263,7 +263,7 @@ body {
 }
 
 .interests-info {
-    margin-top: vw;
+    margin-top: 2vw;
 }
 
 .bbva-connect {
@@ -278,4 +278,25 @@ body {
 
 #dateInput {
     display: none;
+}
+
+.show {
+    display: initial !important;
+
+}
+
+.hide {
+    display: none;
+}
+
+#next-step-date {
+    display: none;
+}
+
+#start-date-input {
+    margin-bottom: 3vw;
+}
+
+.input-return-date {
+    margin-bottom: 3vw;
 }
