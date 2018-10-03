@@ -1,10 +1,17 @@
 extends layout.pug
 
-block content
-    ul
-        each property, index in userData
-            li #{Object.keys(userData)[index]} : #{property}
+block menu
+    .header-container
+        span.return-button
+            i.fa.fa-left-arrow
+        img.logo-bbva(src='/public/img/logo.png' alt='BBVA Logo')
 
-block footer
-  .footer
-    p Copyright 2018
+block content
+    .row.main-container.login-container
+            .results-top-text.text-center
+                h1.text-showcase.headline-splash #[span BBVA] Travel Experience
+                img.destination-featured-img(src='/public/img/interests/splash.svg')
+                div.budget-text Take in account..full trip..lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                button.btn.btn-primary.btn-lg.btn-block(type='button' onclick='window.location.href = ""')
+                    | Login with
+                    img.bbva-connect(src='/public/img/bbva-connect.png' alt='BBVA Connect')

@@ -8652,19 +8652,30 @@ a.text-dark:hover, a.text-dark:focus {
 body {
   font-family: 'Lato'; }
 
+.logo-bbva {
+  height: 12vw;
+  margin-top: 4vw; }
+
 /* Header Styling */
 .header-container {
   text-align: center; }
 
 .return-button {
-  float: left; }
+  position: absolute;
+  left: 6vw;
+  font-size: 7vw;
+  margin-top: 3vw; }
 
 .text-showcase {
-  text-align: center; }
+  font-size: 7vw;
+  margin-bottom: 0vw; }
+
+.text-showcase-sub {
+  font-size: 4vw; }
 
 /* Content Block Styling */
 .main-container {
-  margin: 5vw 0; }
+  margin: 3vw 0 5vw; }
 
 .img-showcase {
   display: block;
@@ -8739,8 +8750,9 @@ body {
 .tint:hover:before {
   background: none; }
 
-.card-footer {
-  padding: 2vw 4vw; }
+.card-footer,
+.custom-header {
+  padding: 2vw 4vw !important; }
 
 .city-card-date {
   float: left; }
@@ -8755,3 +8767,92 @@ body {
 .city-card-book a {
   font-size: 3.3vw;
   padding: 1.2vw 2.2vw; }
+
+.big-destination {
+  font-size: 8vw;
+  margin-bottom: 0; }
+
+.big-destination-date {
+  font-size: 4vw; }
+
+.big-destination-sub {
+  font-size: 4vw;
+  margin-top: 1vw; }
+
+.item-expense {
+  font-size: 3.5vw; }
+
+.expense-total {
+  float: right; }
+
+.cost-sum {
+  font-weight: bold; }
+
+.cheapest-book {
+  display: inline-block;
+  margin-top: 1.5vw; }
+
+.flight-list-title {
+  margin-bottom: 0;
+  font-size: 5vw; }
+
+.flight-list-date {
+  font-size: 3vw;
+  padding: 0.7vw 2vw; }
+
+.flight-list-price {
+  float: right;
+  font-size: 5vw; }
+
+.flight-list-book {
+  float: right;
+  font-size: 3.5vw;
+  margin-top: 1vw; }
+
+.cheapest-top-text {
+  margin: 5vw; }
+
+.results-featured-img {
+  width: 40%;
+  margin: 3vw 5vw 1vw; }
+
+.results-top-text {
+  margin: 5vw auto; }
+
+.featured-details-img {
+  width: 50%;
+  margin: 5vw 5vw 1vw; }
+
+.other-options-button {
+  margin: 5vw 0; }
+
+.flight-list-card {
+  margin-bottom: 3vw; }
+
+.budget-text {
+  margin: 6vw 0; }
+
+.input-btn {
+  margin-bottom: 5vw; }
+
+.date-featured-img {
+  width: 50%;
+  margin: 3vw 5vw 3vw; }
+
+.destination-featured-img {
+  width: 50%;
+  margin: 5vw; }
+
+.interests-info {
+  margin-top: vw; }
+
+.bbva-connect {
+  height: 4vw;
+  margin-left: 1.5vw;
+  margin-bottom: 1.5vw; }
+
+.headline-splash {
+  font-weight: bold; }
+
+#dateInput {
+  display: none; }

@@ -1,0 +1,57 @@
+extends layout
+
+block menu
+    .header-container
+        span.return-button
+            i.fa.fa-arrow-left
+        img.logo-bbva(src='/public/img/logo.png' alt='BBVA Logo')
+
+block content
+    .row
+        .col
+            .cheapest-container
+                .cheapest-top-text.text-center
+                    h1.text-showcase This is the cheapest option
+                    h3.text-showcase-sub tailored to your custom experience
+                    img.featured-details-img(src='/public/img/interests/result.svg' alt='Result')
+                .cheapest-card-container.card
+                    .card-body
+                        .card-title.big-destination MAD #[i.fa.fa-plane] BCN
+                        .card-subtitle.mb-2.text-muted.big-destination-date Fly 30/03 – Return 20/04
+                        .card-subtitle.mb-2.text-muted.big-destination-sub Iván, this is the cheapest flight based on your desired experience
+                        hr
+                        .item-expense
+                            span.card-text.expense-desc Precio vuelo ida:
+                            span.expense-total 100,00€
+                        .item-expense
+                            span.card-text.expense-desc Precio vuelo vuelta:
+                            span.expense-total 100,00€
+                        .item-expense
+                            span.card-text.expense-desc Precio estancia (30/03 to 20/04):
+                            span.expense-total 100,00€
+                        .item-expense.expense-desc.cost-sum
+                            span.card-text.expense-desc Total:
+                            span.expense-total 1000,00€
+                        a.card-link.cheapest-book(href='#') #[i.fa.fa-arrow-right] Book now
+            button.btn.btn-primary.btn-lg.btn-block.other-options-button(type='button' onclick='') Explore other options
+            .other-options-container
+                .card.flight-list-card
+                    .card-body
+                        .row
+                            .col-6.flight-list-lft
+                                .card-title.flight-list-title MAD #[i.fa.fa-plane] BCN
+                                a.btn.btn-secondary.disabled.flight-list-date(href='#') 
+                                    i.fa.fa-clock-o
+                                    |  03/07 to 08/09
+                            .col-6.flight-list-rght
+                                span.flight-list-price
+                                    span est.
+                                    | 1,000€
+                                a.card-link.flight-list-book(href='#') #[i.fa.fa-arrow-right] View more
+                        
+block scripts
+    script.
+        function rotatex() {
+            var svg = document.getElementByClassName("featured-details-img")[0];
+            svg.setAttribute("transform", "rotate(45)");
+        }

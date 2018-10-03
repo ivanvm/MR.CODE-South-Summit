@@ -10,11 +10,11 @@ exports.destination = (req, res) => {
 }
 
 exports.date = (req, res) => {
-    res.render('destination')
+    res.render('date')
 }
 
 exports.budget = (req, res) => {
-    res.render('destination')
+    res.render('budget')
 }
 
 exports.details = (req, res) => {

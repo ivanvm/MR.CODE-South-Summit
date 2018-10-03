@@ -1,22 +1,13 @@
 extends layout.pug
 block menu
     .header-container
-        span.return-button
-            i.fa.fa-left-arrow
-        img.logo-bbva(src='' alt='BBVA Logo')
+        img.logo-bbva(src='/public/img/logo.png' alt='BBVA Logo')
+
 block content
     .row.main-container
-            .col
-                h2.text-showcase Where do you want to go?
-                p <br>
-                .content-div
-                    img.img-showcase(src='' alt='')
-                    h5.text-showcase Get the best travel based on your destination
-                    div Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                    button.btn.btn-primary.btn-lg.btn-block(type='button' onclick='window.location.href = "/date"') Select
-                .content-div
-                    p <br>
-                    img.img-showcase(src='' alt='')
-                    h5.text-showcase Get the best destinations based on your budged
-                    div Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                    button.btn.btn-primary.btn-lg.btn-block(type='button' onclick='window.location.href = "/budget"') Select
+            .results-top-text.text-center
+                img.destination-featured-img(src='/public/img/interests/compass.svg')
+                h5.text-showcase Get the best travel based on your destination
+                div.budget-text Take in account..full trip..lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                button.btn.btn-primary.btn-lg.btn-block(type='button' onclick='window.location.href = ""') Select destination
+                button.btn.btn-primary.btn-lg.btn-block(type='button' onclick='window.location.href = ""') Skip for now
