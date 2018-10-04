@@ -17232,7 +17232,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./../../node_modules/font-awesome/fonts/fontawesome-webfont.eot":[["fontawesome-webfont.f69f3d91.eot","../../node_modules/font-awesome/fonts/fontawesome-webfont.eot"],"../../node_modules/font-awesome/fonts/fontawesome-webfont.eot"],"./../../node_modules/font-awesome/fonts/fontawesome-webfont.woff2":[["fontawesome-webfont.4326a27e.woff2","../../node_modules/font-awesome/fonts/fontawesome-webfont.woff2"],"../../node_modules/font-awesome/fonts/fontawesome-webfont.woff2"],"./../../node_modules/font-awesome/fonts/fontawesome-webfont.woff":[["fontawesome-webfont.ef999803.woff","../../node_modules/font-awesome/fonts/fontawesome-webfont.woff"],"../../node_modules/font-awesome/fonts/fontawesome-webfont.woff"],"./../../node_modules/font-awesome/fonts/fontawesome-webfont.ttf":[["fontawesome-webfont.4f58e7c4.ttf","../../node_modules/font-awesome/fonts/fontawesome-webfont.ttf"],"../../node_modules/font-awesome/fonts/fontawesome-webfont.ttf"],"./../../node_modules/font-awesome/fonts/fontawesome-webfont.svg":[["fontawesome-webfont.33529680.svg","../../node_modules/font-awesome/fonts/fontawesome-webfont.svg"],"../../node_modules/font-awesome/fonts/fontawesome-webfont.svg"],"_css_loader":"../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
+},{"./..\\..\\node_modules\\font-awesome\\fonts\\fontawesome-webfont.eot":[["fontawesome-webfont.f69f3d91.eot","../../node_modules/font-awesome/fonts/fontawesome-webfont.eot"],"../../node_modules/font-awesome/fonts/fontawesome-webfont.eot"],"./..\\..\\node_modules\\font-awesome\\fonts\\fontawesome-webfont.woff2":[["fontawesome-webfont.4326a27e.woff2","../../node_modules/font-awesome/fonts/fontawesome-webfont.woff2"],"../../node_modules/font-awesome/fonts/fontawesome-webfont.woff2"],"./..\\..\\node_modules\\font-awesome\\fonts\\fontawesome-webfont.woff":[["fontawesome-webfont.ef999803.woff","../../node_modules/font-awesome/fonts/fontawesome-webfont.woff"],"../../node_modules/font-awesome/fonts/fontawesome-webfont.woff"],"./..\\..\\node_modules\\font-awesome\\fonts\\fontawesome-webfont.ttf":[["fontawesome-webfont.4f58e7c4.ttf","../../node_modules/font-awesome/fonts/fontawesome-webfont.ttf"],"../../node_modules/font-awesome/fonts/fontawesome-webfont.ttf"],"./..\\..\\node_modules\\font-awesome\\fonts\\fontawesome-webfont.svg":[["fontawesome-webfont.33529680.svg","../../node_modules/font-awesome/fonts/fontawesome-webfont.svg"],"../../node_modules/font-awesome/fonts/fontawesome-webfont.svg"],"_css_loader":"../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
 window.jQuery = window.$ = require('./../../node_modules/jquery');
 
 require('../../node_modules/bootstrap');
@@ -17265,7 +17265,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64333" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60809" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

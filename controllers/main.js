@@ -1,4 +1,6 @@
 const Client = require('../models/Client')
+const request = require('request')
+const rp = require('request-promise');
 
 exports.welcome = (req, res) => {
     req.cookies.uuid
@@ -31,48 +33,149 @@ exports.interests = (req, res) => {
 
 exports.results = (req, res) => {
 
-    const request = require('request')
-    const client_id = 'N1ZQD3gBzEr303NKC5pRyDv0lMCVGkG8',
-        client_secret = 'EG6AUAl0jsw30xjd',
-        travelopt = 2
-    var api_url = ''
+    var travelopt = 0
+
+    var api_url_flights = '', api_url_hotels = 'https://test.api.amadeus.com/v1/shopping/hotel-offers'
     switch (travelopt) {
         case 0:
-            api_url = 'https://test.api.amadeus.com/v1/shopping/flight-offers?origin=' + 'PAR' + '&destination=' + 'LON' + '&departureDate=' + '2018-10-25' + '&returnDate=' + '2018-10-28'
+            api_url_flights = 'https://test.api.amadeus.com/v1/shopping/flight-offers?origin=' + 'MAD' + '&destination=' + 'BCN' + '&departureDate=' + '2018-11-25' + '&returnDate=' + '2018-11-28&nonStop=true&max=1'
             break;
         case 1:
-            api_url = 'https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=' + 'LON' + '&maxPrice=' + '400'
+            api_url_flights = 'https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=' + 'MAD' + '&maxPrice=' + '400'
             break;
         case 2:
-            api_url = 'https://test.api.amadeus.com/v1/shopping/flight-dates?origin=' + 'PAR' + '&destination=' + 'LON'
+            api_url_flights = 'https://test.api.amadeus.com/v1/shopping/flight-dates?origin=' + 'PAR' + '&destination=' + 'LON'
             break;
         default:
-            api_url = ''
+            api_url_flights = ''
     }
 
-    request.post({
-        url: 'https://test.api.amadeus.com/v1/security/oauth2/token',
+    /********************GET ACCESS TOKEN***************/
+    var tripDestinations = [], hotelDestinations = [], hotelAvgPrice = 60
+    var access_token = ''
+
+    var getToken = {
+        method: 'POST',
+        uri: 'https://test.api.amadeus.com/v1/security/oauth2/token',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
         body: 'client_id=N1ZQD3gBzEr303NKC5pRyDv0lMCVGkG8&client_secret=EG6AUAl0jsw30xjd&grant_type=client_credentials',
         json: true
-    }, (error, response, body) => {
+    };
 
-        request.get({
-            url: api_url,
-            headers: {
-                'Authorization': 'Bearer ' + body.access_token
-            },
-            json: true
-        }, (error, response, body) => {
-            const userData = body.data
+    var getHotels = {
+        uri: api_url_hotels,
+        qs: {
+           cityCode: 'LON',
+           checkInDate: '2018-11-25',
+           checkOutDate: '2018-11-28' // -> uri + '?access_token=xxxxx%20xxxxx'
+        },
+        headers: {
+            'Authorization': 'Bearer '
+        },
+        json: true // Automatically parses the JSON string in the response
+    };
 
-            res.render('results', {
-                userData: userData
-            })
+    var getFlights = {
+        uri: api_url_flights,
+        qs: {
+             // -> uri + '?access_token=xxxxx%20xxxxx'
+        },
+        headers: {
+            'Authorization': 'Bearer '
+        },
+        json: true // Automatically parses the JSON string in the response
+    };
+
+
+
+
+    rp(getToken)
+        .then(function (body) {
+            // POST succeeded...
+            access_token = body.access_token
+            res.send(getHotels.headers+=access_token)
+          /*  getFlights.headers+=access_token
+
+            -
+
+            rp(getHotels)
+                .then(function (body) {
+                  console.log('Getting hotels information...')
+                    const hotelData = body.data
+
+                    hotelAvgPrice = hotelData[0]['offers'][0].price.total
+
+                    var i = 0
+
+                    while (i<10 && i<hotelData.length)  {
+
+
+                       hotelDestinations.push({
+                          price:hotelData[i]['offers'][0].price.total
+                        })
+
+                      i++;
+                    }
+
+
+                    rp(getFlights)
+                        .then(function (body) {
+                            const tripData = body.data
+
+
+                            var i = 0
+
+                            while (i<10 && i<tripData.length)  {
+
+                              if (travelopt == 0) {
+                /*******************************************FALTA ACCEDER A TODAS LAS PROPERTIES**************************************
+                                tripDestinations.push({
+                                  origin:tripData[i]['offerItems'][0]['services'][0]['segments'][0]['flightSegment'].departure.iataCode,
+                                  destination:tripData[i]['offerItems'][0]['services'][0]['segments'][0]['flightSegment'].arrival.iataCode,
+                                  departureDate:tripData[i]['offerItems'][0]['services'][0]['segments'][0]['flightSegment'].departure.at,
+                                  returnDate:Date.parse(tripData[i]['offerItems'][0]['services'][0]['segments'][0]['flightSegment'].arrival.at),
+                                  price:parseFloat(tripData[i]['offerItems'][0].price.total) + parseFloat(hotelAvgPrice)
+                                })
+                              } else if (travelopt == 1) {
+                                tripDestinations.push({
+                                  origin:tripData[i].origin,
+                                  destination:tripData[i].destination,
+                                  departureDate:tripData[i].departureDate,
+                                  returnDate:tripData[i].returnDate,
+                                  price:parseFloat(tripData[i].price.total) + parseFloat(hotelAvgPrice)
+                                })
+
+                              }
+                              i++;
+                            }
+
+
+
+                            res.render('results', {
+                                tripDestinations: tripDestinations,
+                                hotelDestinations: hotelDestinations,
+                                hotelAvgPrice: hotelAvgPrice
+                            })
+                        })
+                        .catch(function (err) {
+                            // API call failed...
+                            console.log('Error getting flights info. . Access_token: ' + access_token)
+                            console.log(err)
+                        });
+          /*      })
+                .catch(function (err) {
+                    // API call failed...
+                    console.log('Error getting hotels info. Access_token: ' + access_token)
+                    console.log(err)
+                }); */
         })
-    })
+        .catch(function (err) {
+            // POST failed...
+            console.log('Error getting access_token');
+        });
+
 
 }
 
