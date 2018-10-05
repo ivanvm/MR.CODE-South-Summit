@@ -1,30 +1,32 @@
 extends layout.pug
 block menu
     .header-container
-        span.return-button
+        span.return-button(onclick='window.history.back()')
             i.fa.fa-arrow-left
         img.logo-bbva(src='/public/img/logo.png' alt='BBVA Logo')
 block content
     .row
-        .col.main-container
-            .results-top-text.text-center
-                h1.text-showcase It's time to come back
-                h3.text-showcase-sub when do you want to return?
-                img.date-featured-img(src='/public/img/interests/calendar.svg')
-                div.budget-text In case you are free to go anytime, we suggest skip this one. This will allow us to find for you even better offers based on your preferences. The estimation will also be closer to your budget.
-                button.btn.btn-primary.btn-lg.btn-block#start-date-input(type='button' onclick='dateInput()') Select return date
-                input.form-control.form-control-lg.input-return-date#dateInput(type="datetime-local" value="2011-08-19T13:45:00")
-                button.btn.btn-primary.btn-lg.btn-block#next-step-date(type='button' onclick='sendBookingDate()') Looks great!
+        .results-top-text.text-center.col
+            h1.text-showcase It's time to come back
+            h3.text-showcase-sub when do you want to return?
+            img.date-featured-img(src='/public/img/interests/calendar.svg')
+            div.budget-text In case you are free to go anytime, we suggest skip this one. This will allow us to find for you even better offers based on your preferences. The estimation will also be closer to your budget.
+        .buttons-container.col
+            button.btn.btn-primary.btn-lg.btn-block#start-date-input(type='button' onclick='dateInput()') Set return date
+            input.form-control.form-control-lg#dateInput(type="datetime-local" value="2011-08-19T13:45:00")
+            button.btn.btn-primary.btn-lg.btn-block.button-margin-bottom#skip-input(type='button' onclick='window.location.href = "/destination/?bookingdate=2011-08-19T13:45:00&returndate=2011-08-25T13:45"') Skip for now
+            button.btn.btn-primary.btn-lg.btn-block#next-step-date(type='button' onclick='sendReturnDate()') Looks great!
 
-block scripts
+block append scripts
     script.
         function dateInput () {
             document.querySelector('#start-date-input').className +=  ' hide'
             document.querySelector('#dateInput').className +=  ' show'
+            document.querySelector('#skip-input').className +=  ' hide'
             document.querySelector('#next-step-date').className +=  ' show'
          }
 
-         function sendBookingDate () {
+         function sendReturnDate () {
             var date = document.getElementById('dateInput').value
             window.location.href = '/destination/'+window.location.search+'&returndate='+date
          }

@@ -1,16 +1,43 @@
 extends layout.pug
 block menu
     .header-container
-        span.return-button
+        span.return-button(onclick='window.history.back()')
             i.fa.fa-arrow-left
         img.logo-bbva(src='/public/img/logo.png' alt='BBVA Logo')
 block content
 
 block content
-    .row.main-container
-            .results-top-text.text-center
-                img.destination-featured-img(src='/public/img/interests/compass.svg')
-                h5.text-showcase Get the best travel based on your destination
+    .row
+            .results-top-text.col.text-center
+                img.destination-featured-img.to-img(src='/public/img/interests/compass.svg')
+                h5.text-showcase.destination-text-showcase Where are we going?
                 div.budget-text Whether you plan a luxury trip or a backpacking tour, a good estimation starts with a realistic budget. Consider flights, transportation accommodation and activities!
-                button.btn.btn-primary.btn-lg.btn-block(type='button' onclick='window.location.href = ""') Select destination
-                button.btn.btn-primary.btn-lg.btn-block(type='button' onclick='window.location.href = "/interests"') Skip for now
+            .buttons-container.col
+                button.btn.btn-primary.btn-lg.btn-block#start-date-input(type='button' onclick='destinationInput()') Select destination
+                input.form-control.form-control-lg#dateInput(type="text" placeholder='Madrid')
+                button.btn.btn-primary.btn-lg.btn-block.button-margin-bottom#skip-input(type='button' onclick='window.location.href = "/interests"') Skip for now
+                button.btn.btn-primary.btn-lg.btn-block#next-step-date(type='button' onclick='sendDestination()') Looks great!
+
+block append scripts
+    script.
+        function destinationInput () {
+            document.querySelector('#start-date-input').className +=  ' hide'
+            document.querySelector('#dateInput').className +=  ' show'
+            document.querySelector('#skip-input').className +=  ' hide'
+            document.querySelector('#next-step-date').className +=  ' show'
+         } 
+
+         function sendDestination () {
+            if (document.getElementById('dateInput').value == '') {
+                alert('Please, enter a valid destination to continue')
+            } else {
+                var destination = document.getElementById('dateInput').value
+                window.location.href = '/interests/'+window.location.search+'&destination='+destination
+            }
+         }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var tl = new TimelineMax;
+            tl.to('.to-img', 0.6, {transformOrigin:"50% 50%", rotation:"-=360"})
+                .to('.to-img', 0.2, {transformOrigin:"50% 50%", rotation:"+=70"})
+        })

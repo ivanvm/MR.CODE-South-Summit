@@ -1,0 +1,13 @@
+<svg width="320px" height="568px" viewBox="0 0 320 568" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Interface-elements/Background" fill="#004481">
+            <g id="Group-2">
+                <polygon id="Shape" points="0 568 320 568 320 0 0 0"></polygon>
+                <polygon id="Shape" opacity="0.1" style="mix-blend-mode: multiply;" points="320 0 0 568 320 568"></polygon>
+                <polygon id="Shape" opacity="0.1" style="mix-blend-mode: multiply;" points="0 568 320 380 320 568"></polygon>
+                <polygon id="Shape" opacity="0.1" style="mix-blend-mode: multiply;" points="319 568 2 0 319 0"></polygon>
+                <polygon id="Shape" opacity="0.1" style="mix-blend-mode: multiply;" points="0 568 320 520 320 568"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

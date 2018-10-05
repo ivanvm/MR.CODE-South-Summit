@@ -2,7 +2,7 @@ extends layout
 
 block menu
     .header-container
-        span.return-button
+        span.return-button(onclick='window.history.back()')
             i.fa.fa-arrow-left
         img.logo-bbva(src='/public/img/logo.png' alt='BBVA Logo')
 
@@ -88,9 +88,8 @@ block content
                                     | 2,040€
                                 a.card-link.flight-list-book(href='#') #[i.fa.fa-arrow-right] View more
                         
-block scripts
+block append scripts
     script.
-        function rotatex() {
-            var svg = document.getElementByClassName("featured-details-img")[0];
-            svg.setAttribute("transform", "rotate(45)");
-        }
+        document.addEventListener('DOMContentLoaded', function () {
+            TweenMax.to('.featured-details-img', 15, {transformOrigin:"50% 50%", rotation:"-=360", repeat:-1, ease:Linear.easeNone});
+        })

@@ -2,7 +2,7 @@ extends layout.pug
 
 block menu
     .header-container
-        span.return-button
+        span.return-button(onclick='window.history.back()')
             i.fa.fa-arrow-left
         img.logo-bbva(src='/public/img/logo.png' alt='BBVA Logo')
 
@@ -36,31 +36,28 @@ block content
                         div Wellness
                 .col.action-group.interests-info
                     div.budget-text.text-center To fully personalize your travel experience, select the most accurate categories of your liking!
+                .buttons-container.col    
                     button.btn.btn-primary.btn-lg.btn-block(type='button' onclick='submitInterests()') I'm done!
 
-block scripts
+block append scripts
     script.
         function selectInterest (el) {
-            if (el.children[0].className.indexOf('interest-container--selected') == -1) {
-                el.children[0].className += ' interest-container--selected'
+            var interestElement = el.children[0], interestElementSelector = '#'+interestElement.id
+            if (interestElement.className.indexOf('interest-container--selected') == -1) {
+                interestElement.className += ' interest-container--selected'
             } else {
-                el.children[0].className = el.children[0].className.replace('interest-container--selected','')
+                interestElement.className = interestElement.className.replace('interest-container--selected','')
             }
+            console.log(interestElementSelector)
+            animate(interestElementSelector)
         }
 
         function submitInterests () {
-            window.location.href = '/budget'
-            var interests = []
-            Array.from(document.getElementsByClassName('interest-container--selected')).forEach(function (el, i) {
-                interests.push(document.getElementsByClassName('interest-container--selected')[i].id)
-            })
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.open("POST", "/dbcontroller/interests");
-            xmlhttp.onreadystatechange = function() {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    window.location.href = '/budget'
-                }
-            }
-            xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-            xmlhttp.send(JSON.stringify({ "interests": interests, "bookingDate": bookingdate, "returnDate": returndate}));
+            window.location.href = '/budget/'+window.location.search
+        }
+        
+        function animate (el) {
+            var tl = new TimelineMax;
+            tl.to(el, 0.15, {scaleX:1.1, scaleY:1.1})
+                .to(el, 0.15, {scaleX:1, scaleY:1})
         }

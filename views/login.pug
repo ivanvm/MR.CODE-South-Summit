@@ -4,14 +4,22 @@ block menu
     .header-container
         span.return-button
             i.fa.fa-left-arrow
-        img.logo-bbva(src='/public/img/logo.png' alt='BBVA Logo')
+        img.logo-bbva(src='/public/img/logo-inv.png' alt='BBVA Logo')
 
 block content
-    .row.main-container.login-container
-            .results-top-text.text-center
-                h1.text-showcase.headline-splash #[span BBVA] Travel Experience
-                img.destination-featured-img(src='/public/img/interests/splash.svg')
-                div.budget-text Whether you plan a luxury trip or a backpacking tour, a good estimation starts with a realistic budget. Consider flights, transportation accommodation and activities!
-                button.btn.btn-primary.btn-lg.btn-block(type='button' onclick='window.location.href = "/bookingdate"')
+    .row
+        .main-container
+            .results-top-text.text-center.col
+                        img.destination-featured-img(src='/public/img/interests/splash.svg')
+                        div.budget-text Welcome to BBVA Travel Experience!<br> Wether you plan a luxury trip or a backpacking tour, every great experience starts with a budget and ends with a memory.  Estimate the costs of your next trip in seconds.
+            .buttons-container.col
+                button.btn.btn-primary.btn-lg.btn-block.button-login(type='button' onclick='window.location.href = "/bookingdate"')
                     | Login with
                     img.bbva-connect(src='/public/img/bbva-connect.png' alt='BBVA Connect')
+
+block append scripts
+    script.
+        document.addEventListener('DOMContentLoaded', function () {
+            document.body.className = 'login-body'
+            TweenMax.to(".destination-featured-img", 1.3, {ease: Bounce.easeOut, y: 50})
+        })

@@ -2,15 +2,48 @@ extends layout.pug
 
 block menu
     .header-container
-        span.return-button
+        span.return-button(onclick='window.history.back()')
             i.fa.fa-arrow-left
         img.logo-bbva(src='/public/img/logo.png' alt='BBVA Logo')
 
 block content
-        .row.main-container
-            .results-top-text.text-center
+        .row
+            .results-top-text.text-center.col
                 h1.text-showcase What is your budget?
                 img.results-featured-img(src='/public/img/interests/money.svg')
                 div.budget-text Whether you plan a luxury trip or a backpacking tour, a good estimation starts with a realistic budget. Consider flights, transportation accommodation, activities...
+            .buttons-container.col
                 input.input-btn(type='text' class='form-control form-control-lg' id='budget' placeholder="I can spend up to...")
-                button.btn.btn-primary.btn-lg.btn-block(type='button' onclick='window.location.href = "../results"') Give me the results!
+                button.btn.btn-primary.btn-lg.btn-block(type='button' onclick='sendBudget()') Give me the results!
+
+block append scripts
+    script.
+        function sendBudget () {
+            if (document.getElementById('budget').value == '') {
+                alert('Please, enter your estimated budget to continue')
+            } else {
+                var budget = document.getElementById('budget').value.replace(/€/g,'')
+                window.location.href = '/results/'+window.location.search+'&budget='+budget
+            }
+         }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var keydown = false
+            document.getElementById('budget').addEventListener('input', function () {
+                this.addEventListener('keydown', function (ev) {
+                    if (ev.which === 8) {
+                        if (!keydown) {
+                            keydown = true;
+                            var input = 
+                            ev.path[0].value = ev.path[0].value.substring(0,ev.path[0].value.length-2)+'€' 
+                        }  
+                        window.addEventListener('keyup', function() {
+                            keydown = false
+                        })
+                    }
+                })
+                if (this.value.charAt(this.value.length-1) != '€') {
+                    this.value = this.value.replace(/€/g,'')+'€'
+                }
+            })
+        })

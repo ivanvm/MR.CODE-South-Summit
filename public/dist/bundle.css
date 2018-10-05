@@ -8653,8 +8653,8 @@ body {
   font-family: 'Lato'; }
 
 .logo-bbva {
-  height: 12vw;
-  margin-top: 4vw; }
+  height: 2.5rem;
+  margin-top: 1.2rem; }
 
 /* Header Styling */
 .header-container {
@@ -8662,32 +8662,60 @@ body {
 
 .return-button {
   position: absolute;
-  left: 6vw;
-  font-size: 7vw;
-  margin-top: 3vw; }
+  left: 1.8rem;
+  font-size: 1.5rem;
+  margin-top: 1rem; }
 
 .text-showcase {
-  font-size: 7vw;
-  margin-bottom: 0vw; }
+  font-size: 2.1rem;
+  margin-bottom: 0; }
 
 .text-showcase-sub {
   font-size: 4vw; }
 
+.budget-text {
+  margin-top: 1rem; }
+
+.destination-text-showcase {
+  margin: .8rem 0 !important; }
+
 /* Content Block Styling */
+.login-body {
+  background: url("bg.fde66bd6.svg");
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.login-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%); }
+
 .main-container {
-  margin: 3vw 0 5vw; }
+  margin: 3vw 0 1.5rem; }
 
 .img-showcase {
   display: block;
   margin: 0 auto; }
 
+.buttons-container {
+  position: fixed;
+  bottom: 0; }
+
+.buttons-container button:last-of-type {
+  margin-bottom: 1.2rem; }
+
+.button-margin-bottom {
+  margin-bottom: 1.2rem; }
+
 .interest-block {
   margin-top: 4vw;
-  padding: 0 3vw; }
+  padding: 0 1rem; }
 
 .interest-container {
   background: #f1f1f1;
-  padding: 5vw 0;
+  padding: 1.5rem 0;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.07), 0 6px 20px 0 rgba(0, 0, 0, 0.02); }
 
 .interest-container--selected {
@@ -8715,11 +8743,12 @@ body {
   height: 28vw; }
 
 .city-card-body .card-title {
-  font-size: 7vw; }
+  font-size: 2rem;
+  margin-bottom: 0; }
 
 .city-card-body .card-text {
   text-align: right;
-  font-size: 7vw; }
+  font-size: 2.1rem; }
 
 .city-card-body .card-text span {
   font-size: 4vw; }
@@ -8794,15 +8823,15 @@ body {
 
 .flight-list-title {
   margin-bottom: 0;
-  font-size: 5vw; }
+  font-size: 1.5rem; }
 
 .flight-list-date {
-  font-size: 3vw;
-  padding: 0.7vw 2vw; }
+  font-size: 1rem;
+  padding: .7vw 2vw; }
 
 .flight-list-price {
   float: right;
-  font-size: 5vw; }
+  font-size: 1.5rem; }
 
 .flight-list-book {
   float: right;
@@ -8810,38 +8839,64 @@ body {
   margin-top: 1vw; }
 
 .cheapest-top-text {
-  margin: 5vw; }
+  margin: 1.5rem; }
 
 .results-featured-img {
   width: 40%;
-  margin: 3vw 5vw 1vw; }
+  margin: 1rem 1.5rem 1vw; }
 
 .results-top-text {
-  margin: 5vw auto; }
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: -1.5rem; }
+
+.final-results-top-text {
+  width: 100%;
+  margin: 1.5rem 0; }
 
 .featured-details-img {
   width: 50%;
-  margin: 5vw 5vw 1vw; }
+  margin: 1.8rem 1.5rem 1rem; }
 
 .other-options-button {
-  margin: 5vw 0; }
+  margin: 1.5rem 0; }
 
 .flight-list-card {
-  margin-bottom: 3vw; }
-
-.budget-text {
-  margin: 6vw 0; }
+  margin-bottom: .5rem; }
 
 .input-btn {
-  margin-bottom: 5vw; }
+  margin-bottom: .5rem; }
+
+input {
+  text-align: center; }
+
+.button-login {
+  background-color: #028484;
+  border-color: #017e7e; }
+
+.button-login:hover {
+  background-color: #028484;
+  border-color: #017e7e; }
+
+.button-login:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 132, 133, 0.5); }
+
+.button-login:not(:disabled):not(.disabled):active {
+  background-color: #017979;
+  border-color: #027474; }
 
 .date-featured-img {
   width: 50%;
-  margin: 3vw 5vw 3vw; }
+  margin: 3vw 1.5rem 0; }
 
 .destination-featured-img {
   width: 50%;
-  margin: 7vw 0; }
+  margin-bottom: 3.5rem; }
+
+.to-img {
+  margin-bottom: 0.25rem; }
 
 .interests-info {
   margin-top: 2vw; }
@@ -8867,10 +8922,10 @@ body {
   display: none; }
 
 #start-date-input {
-  margin-bottom: 3vw; }
+  margin-bottom: .5rem; }
 
 .input-return-date {
-  margin-bottom: 3vw; }
+  margin-bottom: .5rem; }
 
 .city {
-  margin-bottom: 5vw; }
+  margin-bottom: 1.5rem; }
