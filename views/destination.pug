@@ -15,7 +15,7 @@ block content
             .buttons-container.col
                 button.btn.btn-primary.btn-lg.btn-block#start-date-input(type='button' onclick='destinationInput()') Select destination
                 input.form-control.form-control-lg#dateInput(type="text" placeholder='Madrid')
-                button.btn.btn-primary.btn-lg.btn-block.button-margin-bottom#skip-input(type='button' onclick='window.location.href = "/interests"') Skip for now
+                button.btn.btn-primary.btn-lg.btn-block.button-margin-bottom#skip-input(type='button' onclick="window.location.href = '/budget/'+window.location.search") Skip for now
                 button.btn.btn-primary.btn-lg.btn-block#next-step-date(type='button' onclick='sendDestination()') Looks great!
 
 block append scripts

@@ -8681,10 +8681,11 @@ body {
 
 /* Content Block Styling */
 .login-body {
-  background: url("bg.fde66bd6.svg");
+  background-image: url(//public/img/bg.svg);
   color: white;
   background-repeat: no-repeat;
-  background-size: cover; }
+  background-size: cover;
+  background-color: #003571; }
 
 .login-container {
   position: fixed;
