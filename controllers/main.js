@@ -1,5 +1,9 @@
 const Client = require('../models/Client')
 
+exports.index = (req, res) => {
+    res.render('login')
+}
+
 exports.welcome = (req, res) => {
     req.cookies.uuid
     res.render('welcome')

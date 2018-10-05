@@ -3,6 +3,7 @@ const router = express.Router()
 const login = require('../controllers/login')
 const main = require('../controllers/main')
 
+router.get('/', main.index)
 router.get('/login', login.loginPage)
 router.get('/login/bbva_token', login.bbvaToken)
 router.get('/welcome', main.welcome)
